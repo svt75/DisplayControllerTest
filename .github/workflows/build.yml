@@ -1,46 +1,23 @@
 name: Build and Release
-
 on:
   push:
-    branches: [ main, master ]
-    tags:
-      - 'v*'
-  pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
+    tags: ['v*']
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: windows-latest
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+    - uses: actions/checkout@v4
+    - uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '6.0.x'
-
-    - name: Restore dependencies
-      run: dotnet restore
-
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-
-    - name: Publish
-      run: dotnet publish -c Release -r win-x64 --self-contained -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o publish
-
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
+    - run: dotnet publish -c Release --self-contained -p:PublishSingleFile=true -o publish
+    - uses: actions/upload-artifact@v4
       with:
         name: DisplayControllerTest
         path: publish/DisplayControllerTest.exe
-
-    - name: Create Release
-      if: startsWith(github.ref, 'refs/tags/v')
+    - if: startsWith(github.ref, 'refs/tags/v')
       uses: softprops/action-gh-release@v1
       with:
         files: publish/DisplayControllerTest.exe
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

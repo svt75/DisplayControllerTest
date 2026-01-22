@@ -10,17 +10,7 @@
     <RootNamespace>DisplayControllerTest</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Version>1.0.0</Version>
-    <Company>DisplayController</Company>
-    <Product>Display Controller Test Tool</Product>
-    <Copyright>2025</Copyright>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <PublishSingleFile>true</PublishSingleFile>
-    <SelfContained>true</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <PublishTrimmed>false</PublishTrimmed>
-    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
 </Project>
