@@ -156,6 +156,10 @@ public partial class MainForm : Form
     }
 
     private async void btnClockOff_Click(object sender, EventArgs e)
+    {
+        Log("Stopping clock...");
+        await SendRequest("POST", "/clock/stop");
+    }
 
     private async void btnBorderOn_Click(object sender, EventArgs e)
     {
@@ -167,9 +171,5 @@ public partial class MainForm : Form
     {
         Log("Border OFF...");
         await SendRequest("POST", "/border/off");
-    }
-    {
-        Log("Stopping clock...");
-        await SendRequest("POST", "/clock/stop");
     }
 }
