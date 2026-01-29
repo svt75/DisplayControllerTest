@@ -98,7 +98,7 @@ partial class MainForm
         pnlGlobal = new Panel();
         pnlGlobal.BackColor = Color.FromArgb(45, 45, 45);
         pnlGlobal.Location = new Point(12, 370);
-        pnlGlobal.Size = new Size(660, 50);
+        pnlGlobal.Size = new Size(660, 90);
         this.Controls.Add(pnlGlobal);
 
         btnSendBoth = new Button { Text = "SEND BOTH", Location = new Point(100, 10), Size = new Size(110, 30), BackColor = Color.FromArgb(68, 170, 68), ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Font = new Font("Arial", 10F, FontStyle.Bold) };
@@ -117,12 +117,20 @@ partial class MainForm
         btnClockOff.Click += btnClockOff_Click;
         pnlGlobal.Controls.Add(btnClockOff);
 
+        btnBorderOn = new Button { Text = "BORDER ON", Location = new Point(220, 50), Size = new Size(100, 30), BackColor = Color.FromArgb(170, 100, 68), ForeColor = Color.White, FlatStyle = FlatStyle.Flat };
+        btnBorderOn.Click += btnBorderOn_Click;
+        pnlGlobal.Controls.Add(btnBorderOn);
+
+        btnBorderOff = new Button { Text = "BORDER OFF", Location = new Point(330, 50), Size = new Size(100, 30), BackColor = Color.FromArgb(80, 80, 80), ForeColor = Color.White, FlatStyle = FlatStyle.Flat };
+        btnBorderOff.Click += btnBorderOff_Click;
+        pnlGlobal.Controls.Add(btnBorderOff);
+
         // Log
-        var lblLog = new Label { Text = "Log:", ForeColor = Color.Gray, Location = new Point(12, 430), AutoSize = true };
+        var lblLog = new Label { Text = "Log:", ForeColor = Color.Gray, Location = new Point(12, 470), AutoSize = true };
         this.Controls.Add(lblLog);
 
         txtLog = new TextBox();
-        txtLog.Location = new Point(12, 450);
+        txtLog.Location = new Point(12, 490);
         txtLog.Size = new Size(660, 250);
         txtLog.Multiline = true;
         txtLog.ScrollBars = ScrollBars.Vertical;
@@ -291,7 +299,7 @@ partial class MainForm
     private Button btnSend2, btnClear2, btnFill2;
 
     private Panel pnlGlobal;
-    private Button btnSendBoth, btnClearAll, btnClockOn, btnClockOff;
+    private Button btnSendBoth, btnClearAll, btnClockOn, btnClockOff, btnBorderOn, btnBorderOff;
 
     private TextBox txtLog;
 }
